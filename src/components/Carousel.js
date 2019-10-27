@@ -73,6 +73,7 @@ const Carousel = () => {
                 style={slideStyles[`s${i}`]}
                 active={selectedIdx === i}
                 className={`carousel-slide-item s${i}`}
+                place={i}
               />
             ))}
           </ul>
@@ -97,14 +98,43 @@ const Carousel = () => {
   );
 };
 
-const CarouselSlideItem = ({ slide, style, className, active }) => (
+const CarouselSlideItem = ({ slide, style, className, active, place }) => (
   <li className={className} style={style}>
     <div className="carousel-slide-item-img">
       <img src={slide} className={active ? "active" : ""} alt={slide.id} />
     </div>
+    <div className="slide-info">
+      <p className="slide-title">{slideInfo[place].title}</p>
+      <p>{slideInfo[place].desc}</p>
+    </div>
   </li>
 );
 
+// separate from info because they are objects and must be read alone, not in an array with other info
 const slides = [amsterdam, brutalist, apartments, balcony, waves];
+
+// separate info for slides, but follows the same order as the slides to match up
+const slideInfo = [
+  {
+    title: "Amsterdam",
+    desc: "The city is vibrant and alive"
+  },
+  {
+    title: "Brutalist",
+    desc: "A political aesthetic, an attitude"
+  },
+  {
+    title: "Apartments",
+    desc: "Inner spaces of a good story"
+  },
+  {
+    title: "Balcony",
+    desc: "Uncountable rectangular protrusions"
+  },
+  {
+    title: "Waves",
+    desc: "There is no new wave, only the sea"
+  }
+];
 
 export default Carousel;

@@ -13,11 +13,10 @@
 
 .carousel-slide-list {
   position: relative;
-  min-height: 45vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 31em;
 }
 
 .carousel-slide-item {
@@ -46,15 +45,27 @@
   }
 }
 
+.slide-info {
+  display: block;
+  position: absolute;
+  bottom: -5em;
+
+  .slide-title {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
 .carousel-slide-item-img {
-  height: 25rem;
+  height: 25em;
   width: 100%;
   display: flex;
   cursor: zoom-in;
   overflow: hidden;
 
   &:after {
-    content: "Go";
+    content: "";
     width: 100%;
     height: 100%;
     background: rgba($black, 0.5);
@@ -86,10 +97,6 @@
     width: 100%;
     transition: all 0.5s ease;
     filter: grayscale(1);
-
-    // &.active {
-    //   filter: none;
-    // }
   }
 }
 
@@ -105,16 +112,16 @@
   cursor: pointer;
 
   &.prev-btn {
-    left: -5rem;
+    left: -5em;
   }
   &.next-btn {
-    right: -5rem;
+    right: -5em;
   }
 }
 
 .carousel-arrow {
-  border: solid $black;
-  border-width: 0 0.4rem 0.4rem 0;
+  border: solid $purple;
+  border-width: 0 0.4em 0.4em 0;
   display: inline-block;
   padding: 3px;
   height: 4em;
@@ -129,6 +136,7 @@
 
 .carousel-dots {
   display: inline-block;
+  margin-top: 2em;
 
   .dot {
     display: inline-block;
@@ -138,13 +146,13 @@
     background: $graylight;
     border: 0;
     border-radius: 50%;
-    margin: 0 0.3rem;
+    margin: 0 0.3em;
     outline: none;
     transform: scale(0.5);
     cursor: pointer;
 
     &.active {
-      background: $black;
+      background: $green;
     }
   }
 }
