@@ -4,18 +4,16 @@ const Hero = () => {
   return (
     <div class="hero-bg">
       <div class="container unrotate">
-        <div class="row">
           <div class="hero-blurb">
-            <h1>Mirum Assessment</h1>
+            <h1>Carmen Tang</h1>
             <p>
-              The key to creating a responsive slanted line is the 'skew' CSS
-              property. Initially I used :after to create the effect, but you
-              couldn't use images or gradients. If you skew the entire element
-              instead, then unskew its contents you achieve the same effect but
-              as a single element you can apply effects to.
+              You will hear thunder and remember me,
+              <br></br>And think: she wanted storms. The rim 
+              <br></br> Of the sky will be the colour of hard crimson,
+              <br></br> And your heart, as it was then, will be on fire.
             </p>
           </div>
-        </div>
+          <div className="box"></div>
       </div>
     </div>
   );
