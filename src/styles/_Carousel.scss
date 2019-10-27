@@ -1,12 +1,16 @@
+// -----------------------------------------------------------------------------
+// CAROUSEL
+// -----------------------------------------------------------------------------
+
 .carousel-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  
+
   @media (max-width: $widthMobile) {
-        height: 400px;
+    height: 400px;
   }
 }
 
