@@ -120,7 +120,7 @@ const slides = [trees, plants, cacti, desert, cosmos];
 const slideInfo = [
   {
     title: "Trees",
-    desc: "The forest is vibrant and alive"
+    desc: "The growths are vibrant and alive"
   },
   {
     title: "Plants",
