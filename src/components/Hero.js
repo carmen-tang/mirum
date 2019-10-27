@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="hero-bg">
       <div className="container unrotate">
           <div className="hero-blurb">
-            <h1>Carmen Tang</h1>
+            <h1>universe and the cosmos</h1>
             <p>
               You will hear thunder and remember me,
               <br></br>And think: she wanted storms. The rim 
