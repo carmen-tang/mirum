@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import amsterdam from "../images/architecture-amsterdam.jpg";
 import apartments from "../images/architecture-apartments.jpg";
@@ -100,9 +101,11 @@ const Carousel = () => {
 
 const CarouselSlideItem = ({ slide, style, className, active, place }) => (
   <li className={className} style={style}>
+    <Link to="detail">
     <div className="carousel-slide-item-img">
-      <img src={slide} className={active ? "active" : ""} alt={slide.id} />
+      <img src={slide} className={active ? "active" : ""} alt={slide.id} />>
     </div>
+    </Link>
     <div className="slide-info">
       <p className="slide-title">{slideInfo[place].title}</p>
       <p>{slideInfo[place].desc}</p>
@@ -110,7 +113,7 @@ const CarouselSlideItem = ({ slide, style, className, active, place }) => (
   </li>
 );
 
-// separate from info because they are objects and must be read alone, not in an array with other info
+// separate from info because they are objects and must be read alone, not in an array with other info for the image
 const slides = [amsterdam, brutalist, apartments, balcony, waves];
 
 // separate info for slides, but follows the same order as the slides to match up
