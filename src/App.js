@@ -1,21 +1,22 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./styles/main.scss";
 
-import Header from "./components/Header.js";
-import Hero from "./components/Hero";
-import Detail from "./components/Detail.js";
-import Carousel from "./components/Carousel";
-import Footer from "./components/Footer";
+import Main from "./Main";
+import DetailPage from "./DetailPage";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      {/* <Detail /> */}
-      <Carousel />
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/detail">
+          <DetailPage />
+        </Route>
+        <Route path="/">
+          <Main />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

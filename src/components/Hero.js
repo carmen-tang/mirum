@@ -2,9 +2,9 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div class="hero-bg">
-      <div class="container unrotate">
-          <div class="hero-blurb">
+    <div className="hero-bg">
+      <div className="container unrotate">
+          <div className="hero-blurb">
             <h1>Carmen Tang</h1>
             <p>
               You will hear thunder and remember me,
