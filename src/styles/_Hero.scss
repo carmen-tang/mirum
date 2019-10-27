@@ -1,5 +1,8 @@
+// -----------------------------------------------------------------------------
+// HERO
+// -----------------------------------------------------------------------------
+
 .hero-bg {
-  /* Skew the entire div */
   -webkit-transform: skewY(4deg);
   -o-transform: skewY(4deg);
   transform: skewY(4deg);
@@ -7,11 +10,8 @@
   -o-transform-origin: 100%;
   transform-origin: 100%;
   z-index: -1;
-
-  /* Weird thing: the line is jagged in Webkit browsers because of a rendering engine quirk. Enabling this fixes it. */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* Compensate for the skewing by pushing it up, off the screen to hide what's going on */
   margin-top: -100px;
   padding-top: 100px;
   position: relative;
@@ -23,56 +23,53 @@
   color: #fff;
   margin-bottom: -20px;
   box-shadow: $box-shadow;
-
-  /* Just the fancy background */
   background: $purple;
   background: -webkit-linear-gradient(top, $purple 32%, $green 100%);
   background: -o-linear-gradient(top, $purple 32%, $green 100%);
   background: linear-gradient(to bottom, $purple 32%, $green 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$purple', endColorstr='$green', GradientType=0 );
-}
 
-/* This is key to the entire process. You need to unskew the contents. It's mildly CPU heavy, but users shouldn't notice at all. */
-.unrotate {
-  -webkit-transform: skewY(-4deg);
-  -o-transform: skewY(-4deg);
-  transform: skewY(-4deg);
-  -webkit-backface-visibility: hidden;
-}
-
-.hero-blurb {
-  padding: 2em 4em 6em 4em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  @media (max-width: $widthTablet) {
-    padding: 2em 1em 6em 1em;
+  .unrotate {
+    -webkit-transform: skewY(-4deg);
+    -o-transform: skewY(-4deg);
+    transform: skewY(-4deg);
+    -webkit-backface-visibility: hidden;
   }
 
-  h1 {
-    letter-spacing: 1px;
-    font-family: "Adamina", serif;
-    font-size: 2.8em;
+  .hero-blurb {
+    padding: 2em 4em 6em 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
-    @media (max-width: $widthMobile) {
-      font-size: 2.1em;
-    }
-  }
-
-  p {
     @media (max-width: $widthTablet) {
-      font-size: 0.8em;
+      padding: 2em 1em 6em 1em;
+    }
+
+    h1 {
+      letter-spacing: 1px;
+      font-family: "Adamina", serif;
+      font-size: 2.8em;
+
+      @media (max-width: $widthMobile) {
+        font-size: 2.1em;
+      }
+    }
+
+    p {
+      @media (max-width: $widthTablet) {
+        font-size: 0.8em;
+      }
     }
   }
-}
 
-.box {
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 288px;
-  height: 91px;
-  position: absolute;
-  right: 9em;
-  top: 7em;
-  z-index: -1;
+  .box {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 288px;
+    height: 91px;
+    position: absolute;
+    right: 9em;
+    top: 7em;
+    z-index: -1;
+  }
 }
