@@ -4,11 +4,23 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  
+  @media (max-width: $widthMobile) {
+        height: 400px;
+  }
 }
 
 .carousel-container {
   position: relative;
   width: 940px;
+
+  @media (max-width: $widthDesktop) {
+    width: 300px;
+  }
+
+  @media (max-width: $widthMobile) {
+    width: 200px;
+  }
 }
 
 .carousel-slide-list {
@@ -25,6 +37,11 @@
   position: absolute;
   width: 300px;
   height: 300px;
+
+  @media (max-width: $widthMobile) {
+    width: 200px;
+    height: 200px;
+  }
 
   &.s0 {
     transform: translateX(0px);
@@ -113,9 +130,17 @@
 
   &.prev-btn {
     left: -5em;
+
+    @media (max-width: $widthTablet) {
+      left: -2em;
+    }
   }
   &.next-btn {
     right: -5em;
+
+    @media (max-width: $widthTablet) {
+      right: -2em;
+    }
   }
 }
 
@@ -126,6 +151,12 @@
   padding: 3px;
   height: 4em;
   width: 4em;
+
+  @media (max-width: $widthTablet) {
+    width: 2em;
+    height: 2em;
+  }
+
   &.left {
     transform: rotate(135deg);
   }
@@ -137,6 +168,10 @@
 .carousel-dots {
   display: inline-block;
   margin-top: 2em;
+
+  @media (max-width: $widthMobile) {
+    margin: 0;
+  }
 
   .dot {
     display: inline-block;
