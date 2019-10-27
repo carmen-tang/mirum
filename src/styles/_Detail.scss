@@ -1,4 +1,4 @@
-@import 'Variables';
+@import "Variables";
 
 // -----------------------------------------------------------------------------
 // DETAILS
@@ -6,7 +6,12 @@
 
 .detail-body {
   padding: 1em;
-  
+
+  .pill {
+    font-weight: 600;
+    color: $green;
+  }
+
   .main-image {
     width: 100%;
     height: 450px;
@@ -36,6 +41,23 @@
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  .quote {
+    p {
+      margin: 2em 0 1em;
+
+      span {
+        border-bottom: 3px solid $green;
+        box-shadow: inset 0 -4px 0 $green;
+        transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+
+        &:hover,
+        &:focus {
+          background-color: $green;
+        }
       }
     }
   }
