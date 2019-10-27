@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import amsterdam from "../images/architecture-amsterdam.jpg";
-import apartments from "../images/architecture-apartments.jpg";
-import brutalist from "../images/architecture-brutalist.jpg";
-import waves from "../images/architecture-waves.jpg";
-import balcony from "../images/architecture-balcony.jpg";
+import trees from "../images/space-trees.jpg";
+import plants from "../images/space-plants.jpg";
+import cacti from "../images/space-cacti.jpg";
+import desert from "../images/space-desert.jpg";
+import cosmos from "../images/space-cosmos.jpg";
 
 const Carousel = () => {
   const [selectedIdx, setSelectedIdx] = React.useState(0);
@@ -114,29 +114,29 @@ const CarouselSlideItem = ({ slide, style, className, active, place }) => (
 );
 
 // separate from info because they are objects and must be read alone, not in an array with other info for the image
-const slides = [amsterdam, brutalist, apartments, balcony, waves];
+const slides = [trees, plants, cacti, desert, cosmos];
 
 // separate info for slides, but follows the same order as the slides to match up
 const slideInfo = [
   {
-    title: "Amsterdam",
-    desc: "The city is vibrant and alive"
+    title: "Trees",
+    desc: "The forest is vibrant and alive"
   },
   {
-    title: "Brutalist",
-    desc: "A political aesthetic, an attitude"
+    title: "Plants",
+    desc: "Through a forest wilderness"
   },
   {
-    title: "Apartments",
-    desc: "Inner spaces of a good story"
+    title: "Cacti",
+    desc: "Inner spaces of barren land"
   },
   {
-    title: "Balcony",
-    desc: "Uncountable rectangular protrusions"
+    title: "Desert",
+    desc: "Uncountable organic protrusions"
   },
   {
-    title: "Waves",
-    desc: "There is no new wave, only the sea"
+    title: "Cosmos",
+    desc: "There is no new wave, only the stars"
   }
 ];
 
