@@ -1,0 +1,56 @@
+.hero-bg {
+  /* Skew the entire div */
+  -webkit-transform: skewY(4deg);
+  -o-transform: skewY(4deg);
+  transform: skewY(4deg);
+  -webkit-transform-origin: 100%;
+  -o-transform-origin: 100%;
+  transform-origin: 100%;
+  z-index: -1;
+
+  /* Weird thing: the line is jagged in Webkit browsers because of a rendering engine quirk. Enabling this fixes it. */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Compensate for the skewing by pushing it up, off the screen to hide what's going on */
+  margin-top: -100px;
+  padding-top: 100px;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+  color: #fff;
+  margin-bottom: -20px;
+  box-shadow: $box-shadow;
+
+  /* Just the fancy background */
+  background: $purple;
+  background: -webkit-linear-gradient(top, $purple 32%, $green 100%);
+  background: -o-linear-gradient(top, $purple 32%, $green 100%);
+  background: linear-gradient(to bottom, $purple 32%, $green 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$purple', endColorstr='$green', GradientType=0 );
+}
+
+/* This is key to the entire process. You need to unskew the contents. It's mildly CPU heavy, but users shouldn't notice at all. */
+.unrotate {
+  -webkit-transform: skewY(-4deg);
+  -o-transform: skewY(-4deg);
+  transform: skewY(-4deg);
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-blurb {
+  padding-top: 2em;
+  padding-bottom: 6em;
+
+  h1 {
+    letter-spacing: 1px;
+    font-family: "Adamina", serif;
+    font-size: 2.8em;
+
+    @media (max-width: $widthMobile) {
+      font-size: 2.1em;
+    }
+  }
+}
