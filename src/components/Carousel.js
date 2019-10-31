@@ -1,143 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 
-import trees from "../images/space-trees.jpg";
-import plants from "../images/space-plants.jpg";
-import cacti from "../images/space-cacti.jpg";
-import desert from "../images/space-desert.jpg";
-import cosmos from "../images/space-cosmos.jpg";
+import Slide from "./Slide";
 
-const Carousel = () => {
-  const [selectedIdx, setSelectedIdx] = React.useState(0);
-  const [slideOrder, setSlideOrder] = React.useState([
-    "s0",
-    "s1",
-    "s2",
-    "s3",
-    "s4"
-  ]);
-  const [slideStyles, setSlideStyles] = React.useState({});
-
-  const rotate = (s0, s1, s2, s3, s4) => {
-    setSlideStyles({
-      [s0]: { transform: "translateX(0px)", opacity: 1 },
-      [s1]: { transform: "translateX(320px)", opacity: 1 },
-      [s2]: { transform: "translateX(640px)", opacity: 1 },
-      [s3]: { transform: "translateX(960px)", opacity: 0 },
-      [s4]: { transform: "translateX(1280px)", opacity: 0 }
-    });
-    setSlideOrder([s0, s1, s2, s3, s4]);
-  };
-
-  const rotateRight = (spaces = 1) => {
-    const s = [];
-
-    slideOrder.forEach((slide, i) => {
-      s[(i + spaces) % slideOrder.length] = slide;
-    });
-
-    setSelectedIdx(4 - ((4 - selectedIdx + spaces) % 5));
-    rotate(s[0], s[1], s[2], s[3], s[4]);
-  };
-
-  const rotateLeft = (spaces = 1) => {
-    const s = [];
-
-    slideOrder.forEach((_, i) => {
-      s[i] = slideOrder[(i + spaces) % slideOrder.length];
-    });
-
-    setSelectedIdx((selectedIdx + spaces) % 5);
-    rotate(s[0], s[1], s[2], s[3], s[4]);
-  };
-
-  const handleDotClick = idx => {
-    if (idx > selectedIdx) {
-      rotateLeft(idx - selectedIdx);
-    } else if (idx < selectedIdx) {
-      rotateRight(selectedIdx - idx);
-    }
-  };
-
+const SliderControl = ({ type, title, handleClick }) => {
   return (
-    <div className="container">
-      <div className="carousel-wrap">
-        <div className="carousel-container">
-          <div className="carousel-btn prev-btn" onClick={() => rotateRight()}>
-            <i className="carousel-arrow left" />
-          </div>
-          <ul className="carousel-slide-list">
-            {slides.map((slide, i) => (
-              <CarouselSlideItem
-                key={i}
-                slide={slide}
-                style={slideStyles[`s${i}`]}
-                active={selectedIdx === i}
-                className={`carousel-slide-item s${i}`}
-                place={i}
-              />
-            ))}
-          </ul>
-          <div className="carousel-btn next-btn" onClick={() => rotateLeft()}>
-            <i className="carousel-arrow right" />
-          </div>
-        </div>
-        <div className="carousel-dots">
-          {slides.map((_, i) => {
-            const className = selectedIdx === i ? "dot active" : "dot";
-            return (
-              <button
-                key={i}
-                className={className}
-                onClick={() => handleDotClick(i)}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    <button className={`btn btn-${type}`} title={title} onClick={handleClick}>
+      <svg className="icon" viewBox="0 0 24 24">
+        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+      </svg>
+    </button>
   );
 };
 
-const CarouselSlideItem = ({ slide, style, className, active, place }) => (
-  <li className={className} style={style}>
-    <Link to="detail">
-    <div className="carousel-slide-item-img">
-      <img src={slide} className={active ? "active" : ""} alt={slide.id} />>
-    </div>
-    </Link>
-    <div className="slide-info">
-      <p className="slide-title">{slideInfo[place].title}</p>
-      <p>{slideInfo[place].desc}</p>
-    </div>
-  </li>
-);
+export default class Carousel extends Component {
+  constructor(props) {
+    super(props);
 
-// separate from info because they are objects and must be read alone, not in an array with other info for the image
-const slides = [trees, plants, cacti, desert, cosmos];
-
-// separate info for slides, but follows the same order as the slides to match up
-const slideInfo = [
-  {
-    title: "Trees",
-    desc: "The growths are vibrant and alive"
-  },
-  {
-    title: "Plants",
-    desc: "Through a forest wilderness"
-  },
-  {
-    title: "Cacti",
-    desc: "Inner spaces of barren land"
-  },
-  {
-    title: "Desert",
-    desc: "Uncountable organic protrusions"
-  },
-  {
-    title: "Cosmos",
-    desc: "There is no new wave, only the stars"
+    this.state = { current: 0 };
+    this.handlePreviousClick = this.handlePreviousClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
+    this.handleSlideClick = this.handleSlideClick.bind(this);
   }
-];
 
-export default Carousel;
+  handlePreviousClick() {
+    const previous = this.state.current - 1;
+
+    this.setState({
+      current: previous < 0 ? this.props.slides.length - 1 : previous
+    });
+  }
+
+  handleNextClick() {
+    const next = this.state.current + 1;
+
+    this.setState({
+      current: next === this.props.slides.length ? 0 : next
+    });
+  }
+
+  handleSlideClick(index) {
+    if (this.state.current !== index) {
+      this.setState({
+        current: index
+      });
+    }
+  }
+
+  render() {
+    const { current } = this.state;
+    const { slides } = this.props;
+    const headingId = ({ heading }) =>
+      `slider-heading-/${heading.replace(/\s+/g, "-").toLowerCase()}/`;
+    const wrapperTransform = {
+      transform: `translateX(-${current * (100 / slides.length)}%)`
+    };
+
+    return (
+      <div className="carousel-wrap">
+        <div className="carousel-hold">
+          <div className="slider" aria-labelledby={headingId}>
+            <ul className="slider-wrapper" style={wrapperTransform}>
+              {slides.map(slide => {
+                return (
+                  <Slide
+                    key={slide.index}
+                    slide={slide}
+                    current={current}
+                    handleSlideClick={this.handleSlideClick}
+                  />
+                );
+              })}
+            </ul>
+
+            <div className="slider-controls">
+              <SliderControl
+                type="previous"
+                title="Go to previous slide"
+                handleClick={this.handlePreviousClick}
+              />
+
+              <SliderControl
+                type="next"
+                title="Go to next slide"
+                handleClick={this.handleNextClick}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
