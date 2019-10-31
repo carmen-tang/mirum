@@ -22,8 +22,6 @@ export default class Slide extends Component {
     const current = this.props.current.toString();
     let classNames = "slide";
 
-    console.log(typeof current + " and " + typeof index);
-
     if (current === index) {
       classNames += " slide-current";
     } else if (current - 1 === index) {
@@ -31,8 +29,6 @@ export default class Slide extends Component {
     } else if (current + 1 === index) {
       classNames += " slide-next";
     }
-
-    console.log(classNames);
 
     return (
       <li
@@ -49,10 +45,10 @@ export default class Slide extends Component {
           />
         </div>
 
-        <article className="slide-content">
+        <div className="slide-content">
           <h2 className="slide-headline">{headline}</h2>
           <div className="slide-action btn">{button}</div>
-        </article>
+        </div>
       </li>
     );
   }

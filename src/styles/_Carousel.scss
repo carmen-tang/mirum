@@ -2,10 +2,6 @@
 // CAROUSEL
 // -----------------------------------------------------------------------------
 
-$color-primary: #6b7a8f;
-$color-secondary: #101118;
-$color-accent: #1d1f2f;
-$color-focus: #6d64f7;
 $bass-duration: 600ms;
 $bass-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
 $slide-size: 280px;
@@ -36,11 +32,6 @@ $slide-margin: 1.4em;
         path {
           fill: $purple;
         }
-      }
-
-      &:focus {
-        border-color: $color-focus;
-        outline: none;
       }
 
       &.btn-previous > * {
@@ -92,7 +83,7 @@ $slide-margin: 1.4em;
   }
 
   .slide-image-wrapper {
-    background-color: $color-accent;
+    background-color: $white;
     border-radius: 1%;
     height: 100%;
     left: 0%;

@@ -31,7 +31,7 @@ export default class Carousel extends Component {
   }
 
   handleNextClick() {
-    const next = this.state.current + 1;
+    const next = parseInt(this.state.current) + 1;
 
     this.setState({
       current: next === this.props.slides.length ? 0 : next
@@ -57,36 +57,37 @@ export default class Carousel extends Component {
 
     return (
       <div className="carousel-wrap">
-          <div className="slider" aria-labelledby={headingId}>
-            <div className="slider-hold">
-              <ul className="slider-wrapper" style={wrapperTransform}>
-                {slides.map(slide => {
-                  return (
-                    <Slide
-                      key={slide.index}
-                      slide={slide}
-                      current={current}
-                      handleSlideClick={this.handleSlideClick}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-
-            <div className="slider-controls">
-              <SliderControl
-                type="previous"
-                title="Go to previous slide"
-                handleClick={this.handlePreviousClick}
-              />
-
-              <SliderControl
-                type="next"
-                title="Go to next slide"
-                handleClick={this.handleNextClick}
-              />
-            </div>
+        <div className="slider" aria-labelledby={headingId}>
+          <div className="slider-hold">
+            <ul className="slider-wrapper" style={wrapperTransform}>
+              {/* Mapping the slides. When the last slide is in first position, return to first slide. */}
+              {slides.map(slide => {
+                return (
+                  <Slide
+                    key={slide.index}
+                    slide={slide}
+                    current={current}
+                    handleSlideClick={this.handleSlideClick}
+                  />
+                );
+              })}
+            </ul>
           </div>
+
+          <div className="slider-controls">
+            <SliderControl
+              type="previous"
+              title="Go to previous slide"
+              handleClick={this.handlePreviousClick}
+            />
+
+            <SliderControl
+              type="next"
+              title="Go to next slide"
+              handleClick={this.handleNextClick}
+            />
+          </div>
+        </div>
       </div>
     );
   }
