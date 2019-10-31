@@ -57,20 +57,21 @@ export default class Carousel extends Component {
 
     return (
       <div className="carousel-wrap">
-        <div className="carousel-hold">
           <div className="slider" aria-labelledby={headingId}>
-            <ul className="slider-wrapper" style={wrapperTransform}>
-              {slides.map(slide => {
-                return (
-                  <Slide
-                    key={slide.index}
-                    slide={slide}
-                    current={current}
-                    handleSlideClick={this.handleSlideClick}
-                  />
-                );
-              })}
-            </ul>
+            <div className="slider-hold">
+              <ul className="slider-wrapper" style={wrapperTransform}>
+                {slides.map(slide => {
+                  return (
+                    <Slide
+                      key={slide.index}
+                      slide={slide}
+                      current={current}
+                      handleSlideClick={this.handleSlideClick}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
 
             <div className="slider-controls">
               <SliderControl
@@ -86,7 +87,6 @@ export default class Carousel extends Component {
               />
             </div>
           </div>
-        </div>
       </div>
     );
   }

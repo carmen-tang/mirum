@@ -8,7 +8,7 @@ $color-accent: #1d1f2f;
 $color-focus: #6d64f7;
 $bass-duration: 600ms;
 $bass-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
-$slide-size: 300px;
+$slide-size: 280px;
 $slide-margin: 1.4em;
 
 .carousel-wrap {
@@ -16,20 +16,19 @@ $slide-margin: 1.4em;
 
   .slider-controls {
     display: flex;
-    justify-content: center;
-    position: absolute;
-    top: calc(100% + 1rem);
-    width: 100%;
+    justify-content: space-between;
+    top: calc(50% - 50px);
+    width: 100vw;
+    height: 300px;
 
     .btn {
       align-items: center;
-      background-color: transparent;
-      border: 3px solid transparent;
-      border-radius: 100%;
+      background-color: $white;
       display: flex;
-      height: 100px;
+      height: 300px;
       padding: 0;
       width: 100px;
+      border-radius: 0;
 
       svg {
         width: 100px;
@@ -54,11 +53,16 @@ $slide-margin: 1.4em;
     height: $slide-size;
     position: relative;
     width: $slide-size;
+
+    .slider-hold {
+      width: 600px;
+      overflow: hidden;
+    }
   }
 
   .slider-wrapper {
     display: flex;
-    margin: 0 calc($slide-margin * -1);
+    margin: 0 6em;
     position: absolute;
     transition: transform $bass-duration cubic-bezier(0.25, 1, 0.35, 1);
   }
@@ -71,7 +75,7 @@ $slide-margin: 1.4em;
     flex-direction: column;
     height: $slide-size;
     justify-content: center;
-    margin: 0 $slide-margin;
+    margin: 0 $slide-margin 0 0;
     opacity: 1;
     position: relative;
     text-align: center;
