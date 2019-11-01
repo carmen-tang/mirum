@@ -1,16 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Slide extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSlideClick = this.handleSlideClick.bind(this);
     this.imageLoaded = this.imageLoaded.bind(this);
     this.slide = React.createRef();
-  }
-
-  handleSlideClick(event) {
-    this.props.handleSlideClick(this.props.slide.index);
   }
 
   imageLoaded(event) {
@@ -34,15 +30,16 @@ export default class Slide extends Component {
       <li
         ref={this.slide}
         className={classNames}
-        onClick={this.handleSlideClick}
       >
         <div className="slide-image-wrapper">
-          <img
-            className="slide-image"
-            alt={title}
-            src={src}
-            onLoad={this.imageLoaded}
-          />
+          <Link to="detail">
+            <img
+              className="slide-image"
+              alt={title}
+              src={src}
+              onLoad={this.imageLoaded}
+            />
+          </Link>
         </div>
 
         <div className="slide-content">

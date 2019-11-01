@@ -1,39 +1,39 @@
-import trees from "../images/space-trees.jpg";
-import plants from "../images/space-plants.jpg";
-import cacti from "../images/space-cacti.jpg";
-import desert from "../images/space-desert.jpg";
-import cosmos from "../images/space-cosmos.jpg";
+import mars from "../images/slide-mars.jpg";
+import titan from "../images/slide-titan.jpg";
+import europa from "../images/slide-europa.jpg";
+import jupiter from "../images/slide-jupiter.jpg";
+import enceladus from "../images/slide-enceladus.jpg";
 
 const SlideInfo = [
   {
     index: "0",
-    title: "Trees",
-    desc: "The growths are vibrant and alive",
-    src: trees
+    title: "Mars",
+    desc: "The red planet",
+    src: mars
   },
   {
     index: "1",
-    title: "Plants",
-    desc: "Through a forest wilderness",
-    src: plants
+    title: "Titan",
+    desc: "Largest moon of Saturn",
+    src: titan
   },
   {
     index: "2",
-    title: "Cacti",
-    desc: "Inner spaces of barren land",
-    src: cacti
+    title: "Europa",
+    desc: "A galilean moon orbiting Jupiter",
+    src: europa
   },
   {
     index: "3",
-    title: "Desert",
-    desc: "Uncountable organic protrusions",
-    src: desert
+    title: "Jupiter",
+    desc: "Fifth planet from the Sun",
+    src: jupiter
   },
   {
     index: "4",
-    title: "Cosmos",
-    desc: "There is no new wave, only the stars",
-    src: cosmos
+    title: "Enceladus",
+    desc: "Icy planet with rocky core",
+    src: enceladus
   }
 ];
 

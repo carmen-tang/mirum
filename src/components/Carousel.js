@@ -19,7 +19,6 @@ export default class Carousel extends Component {
     this.state = { current: 0 };
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
-    this.handleSlideClick = this.handleSlideClick.bind(this);
     this.handleDotClick = this.handleDotClick.bind(this);
   }
 
@@ -37,14 +36,6 @@ export default class Carousel extends Component {
     this.setState({
       current: next === this.props.slides.length ? 0 : next
     });
-  }
-
-  handleSlideClick(index) {
-    if (this.state.current !== index) {
-      this.setState({
-        current: index
-      });
-    }
   }
 
   handleDotClick = index => {
@@ -73,7 +64,6 @@ export default class Carousel extends Component {
                   key={slide.index}
                   slide={slide}
                   current={current}
-                  handleSlideClick={this.handleSlideClick}
                 />
               );
             })}
