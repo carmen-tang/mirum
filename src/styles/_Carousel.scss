@@ -17,13 +17,13 @@ $slide-margin: 1.4em;
     justify-content: space-between;
     top: calc(50% - 50px);
     width: 100vw;
-    height: 400px;
+    height: 380px;
 
     .btn {
       align-items: center;
       background-color: $white;
       display: flex;
-      height: 400px;
+      height: 380px;
       padding: 0;
       width: 100px;
       border-radius: 0;
@@ -105,12 +105,14 @@ $slide-margin: 1.4em;
   }
 
   .slide-content {
-    padding: 2em;
+    padding: 2em 0;
     position: relative;
     bottom: -12em;
+    text-align: left;
+    width: 90%;
 
     .slide-headline {
-      font-size: 2em;
+      font-size: 1em;
       font-weight: 600;
       position: relative;
     }

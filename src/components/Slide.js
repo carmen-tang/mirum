@@ -18,7 +18,7 @@ export default class Slide extends Component {
   }
 
   render() {
-    const { src, title, index } = this.props.slide;
+    const { src, title, desc, index } = this.props.slide;
     const current = this.props.current.toString();
     let classNames = "slide";
 
@@ -47,7 +47,7 @@ export default class Slide extends Component {
 
         <div className="slide-content">
           <h2 className="slide-headline">{title}</h2>
-          <div className="slide-action btn">text</div>
+          <div className="slide-action btn">{desc}</div>
         </div>
       </li>
     );
