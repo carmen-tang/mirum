@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .footer {
-  background-color: $purple;
+  background-color: $black;
   width: 100%;
   margin-top: 5em;
 
@@ -27,13 +27,13 @@
         text-transform: uppercase;
         padding: 3px 12px 4px 0px;
         margin: 0.5em 0.5em 0.5em 0em;
-        border-bottom: 3px solid $green;
-        box-shadow: inset 0 -4px 0 $green;
+        border-bottom: 3px solid $darkpurple;
+        box-shadow: inset 0 -4px 0 $darkpurple;
         transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 
         &:hover,
         &:focus {
-          background-color: $green;
+          background-color: $darkpurple;
         }
       }
     }

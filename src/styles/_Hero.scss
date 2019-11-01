@@ -20,13 +20,13 @@
   right: 0;
   width: 100%;
   z-index: 1;
-  color: #fff;
+  color: $white;
   margin-bottom: -20px;
   box-shadow: $box-shadow;
   background: $purple;
-  background: -webkit-linear-gradient(top, $purple 32%, $green 100%);
-  background: -o-linear-gradient(top, $purple 32%, $green 100%);
-  background: linear-gradient(to bottom, $purple 32%, $green 100%);
+  background: -webkit-linear-gradient(top, $black 32%, $darkblue 100%);
+  background: -o-linear-gradient(top, $black 32%, $darkblue 100%);
+  background: linear-gradient(to bottom, $black 32%, $darkblue 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$purple', endColorstr='$green', GradientType=0 );
 
   .unrotate {
