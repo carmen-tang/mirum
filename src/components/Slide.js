@@ -27,12 +27,9 @@ export default class Slide extends Component {
     }
 
     return (
-      <li
-        ref={this.slide}
-        className={classNames}
-      >
+      <li ref={this.slide} className={classNames}>
         <div className="slide-image-wrapper">
-          <Link to="detail">
+          <Link to={`detail/#${title}`}>
             <img
               className="slide-image"
               alt={title}
