@@ -20,6 +20,7 @@ export default class Carousel extends Component {
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handleSlideClick = this.handleSlideClick.bind(this);
+    this.handleDotClick = this.handleDotClick.bind(this);
   }
 
   handlePreviousClick() {
@@ -46,6 +47,12 @@ export default class Carousel extends Component {
     }
   }
 
+  handleDotClick = index => {
+    this.setState({
+      current: index
+    });
+  };
+
   render() {
     const { current } = this.state;
     const { slides } = this.props;
@@ -58,35 +65,40 @@ export default class Carousel extends Component {
     return (
       <div className="carousel-wrap">
         <div className="slider" aria-labelledby={headingId}>
-          <div className="slider-hold">
-            <ul className="slider-wrapper" style={wrapperTransform}>
-              {/* Mapping the slides. When the last slide is in first position, return to first slide. */}
-              {slides.map(slide => {
-                return (
-                  <Slide
-                    key={slide.index}
-                    slide={slide}
-                    current={current}
-                    handleSlideClick={this.handleSlideClick}
-                  />
-                );
-              })}
-            </ul>
-          </div>
+          <ul className="slider-wrapper" style={wrapperTransform}>
+            {/* Mapping the slides. When the last slide is in first position, return to first slide. */}
+            {slides.map(slide => {
+              return (
+                <Slide
+                  key={slide.index}
+                  slide={slide}
+                  current={current}
+                  handleSlideClick={this.handleSlideClick}
+                />
+              );
+            })}
+          </ul>
 
           <div className="slider-controls">
             <SliderControl
               type="previous"
-              title="Go to previous slide"
               handleClick={this.handlePreviousClick}
             />
 
-            <SliderControl
-              type="next"
-              title="Go to next slide"
-              handleClick={this.handleNextClick}
-            />
+            <SliderControl type="next" handleClick={this.handleNextClick} />
           </div>
+        </div>
+        <div className="carousel-dots">
+          {slides.map((_, i) => {
+            const className = current === i ? "dot active" : "dot";
+            return (
+              <button
+                key={i}
+                className={className}
+                onClick={() => this.handleDotClick(i)}
+              />
+            );
+          })}
         </div>
       </div>
     );
