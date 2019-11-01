@@ -27,14 +27,30 @@
   .gallery {
     display: flex;
 
+    @media (max-width: $widthTablet) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: $widthMobile) {
+          justify-content: space-between;
+    }
+
     .gallery-item {
       overflow: hidden;
       width: 20%;
-      margin: 1em;
+      margin: 1em 1em 1em 0em;
       cursor: pointer;
 
-      &:first-child {
-        margin-left: 0;
+      @media (max-width: $widthTablet) {
+        width: 30%;
+      }
+
+      @media (max-width: 540px) {
+        width: 47%;
+
+        &:nth-child(even) {
+          margin-right: 0;
+        }
       }
 
       &:last-child {
@@ -45,7 +61,7 @@
 
   .quote {
     p {
-      margin: 2em 0 1em; 
+      margin: 2em 0 1em;
     }
   }
 }
