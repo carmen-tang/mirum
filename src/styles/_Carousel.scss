@@ -9,19 +9,21 @@ $slide-margin: 1.4em;
 
 .carousel-wrap {
   margin: 6em 0;
+  overflow-x: hidden;
+  height: 400px;
 
   .slider-controls {
     display: flex;
     justify-content: space-between;
     top: calc(50% - 50px);
     width: 100vw;
-    height: 300px;
+    height: 400px;
 
     .btn {
       align-items: center;
       background-color: $white;
       display: flex;
-      height: 300px;
+      height: 400px;
       padding: 0;
       width: 100px;
       border-radius: 0;
@@ -44,11 +46,6 @@ $slide-margin: 1.4em;
     height: $slide-size;
     position: relative;
     width: $slide-size;
-
-    .slider-hold {
-      width: 600px;
-      overflow: hidden;
-    }
   }
 
   .slider-wrapper {
@@ -60,7 +57,6 @@ $slide-margin: 1.4em;
 
   .slide {
     align-items: center;
-    color: white;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -73,7 +69,7 @@ $slide-margin: 1.4em;
     transition: opacity calc($bass-duration) / 2 $bass-ease,
       transform calc($bass-duration) / 2 $bass-ease;
     width: $slide-size;
-    z-index: 1; 
+    z-index: 1;
   }
 
   .slide-current {
@@ -108,21 +104,15 @@ $slide-margin: 1.4em;
     width: 110%;
   }
 
-  .slide-headline {
-    font-size: 8vmin;
-    font-weight: 600;
-    position: relative;
-  }
-
   .slide-content {
-    opacity: 0;
-    padding: 4vmin;
+    padding: 2em;
     position: relative;
-    transition: transform $bass-duration $bass-ease;
-    visibility: hidden;
+    bottom: -12em;
 
-    > * + * {
-      margin-top: 2rem;
+    .slide-headline {
+      font-size: 2em;
+      font-weight: 600;
+      position: relative;
     }
   }
 }
